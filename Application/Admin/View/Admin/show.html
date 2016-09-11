@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>后台用户列表展示</h1>
+
+	<table>
+		<th>
+			<tr>
+				<td>id</td>
+				<td>用户名</td>
+				<td>年龄</td>
+			</tr>
+		</th>
+		<tbody>
+			<volist name="userData" id="vo">
+			<tr>
+				
+					<td>{$vo.id}</td>
+					<td>{$vo.username}</td>
+					<td>{$vo.age}</td>
+					<td><a href="javascript:void(0)" class="js_del" data-id="{$vo.id}">删除</a></td>
+					<td><a href="/thinkphp-demo/index.php/Admin/Admin/edit/?id={$vo.id}" class="js_edit" data-id="{$vo.id}">编辑</a></td>
+			</tr>
+			</volist>
+		</tbody>
+	</table>
+	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('.js_del').on("click",function(){
+			var that = $(this);
+			var id = that.attr("data-id");
+			$.ajax({
+			  method: "POST",
+			  url: "/thinkphp-demo/index.php/Admin/Admin/del",
+			  data: { id:id},
+			  dataType: "json"
+			}).done(function( msg ) {
+			  	location = location;
+			});
+		})
+	</script>
+</body>
+</html>
