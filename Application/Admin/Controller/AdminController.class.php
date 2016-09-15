@@ -3,6 +3,11 @@ namespace Admin\Controller;
 use Think\Controller;
 class AdminController extends Controller {
     public function index(){
+        if(!session('login')){
+            $this->success('未登陆',U('Login/Index'));
+        }
+        $name =  session('username');
+        $this->assign('name',$name);
         $this->display();
     }
 
