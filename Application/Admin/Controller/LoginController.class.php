@@ -17,12 +17,15 @@
 		}
 
 		public function check(){
+			$datas['username'] = $_POST['username'];
+		
 			$user = M('Users');
 			
 			$row = $user->where($_POST)->find();
 			if($row){
 				session('username',$_POST['username']);
 				session('login',1);
+				cookie('login',$_POST['username']);
 				$data['status'] = 1;
 
 				$this->ajaxReturn($data);
@@ -30,7 +33,7 @@
 			}
 			else {
 				$data['status'] = 0;
-				
+				cookie('login',null);
 				$this->ajaxReturn($data);
 				//$this->error('登陆错误','index');
 			}

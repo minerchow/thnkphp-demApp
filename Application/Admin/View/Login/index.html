@@ -17,12 +17,13 @@
               data: { username:$('#username').val(),password:$('#password').val()},
               dataType: "json"
             }).done(function( msg ) {
-               if(msg.status == 1){
-                window.location.href="/thinkphp-demo/index.php/Admin/Admin/Index";
-               }
-               else{
-                window.location.href="/thinkphp-demo/index.php/Admin/Login/Index";
-               }
+              
+               // if(msg.status == 1){
+               //  window.location.href="/thinkphp-demo/index.php/Admin/Admin/Index";
+               // }
+               // else{
+               //  window.location.href="/thinkphp-demo/index.php/Admin/Login/Index";
+               // }
             });
         })
     </script>

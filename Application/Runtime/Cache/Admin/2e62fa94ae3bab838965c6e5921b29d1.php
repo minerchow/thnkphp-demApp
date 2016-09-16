@@ -27,7 +27,17 @@
 		</tbody>
 	</table>
 	<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+	
 	<script type="text/javascript">
+		$.ajax({
+			  method: "GET",
+			  url: "/thinkphp-demo/index.php/Admin/Admin/showAJAX",
+			  data: { },
+			  dataType: "json"
+			}).done(function( msg ) {
+			  	console.log(typeof msg);
+			});
+
 		$('.js_del').on("click",function(){
 			var that = $(this);
 			var id = that.attr("data-id");

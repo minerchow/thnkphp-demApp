@@ -35,6 +35,12 @@ class AdminController extends Controller {
     	$this->assign("userData",$User);
     	$this->display();
     }
+
+     public function showAJAX(){
+        $User = M('User')->select();
+        $data = $User;
+        $this->ajaxReturn($data,'JSON');
+     }
     /**
 	*编辑方法
     **/
